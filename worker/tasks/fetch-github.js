@@ -1,10 +1,6 @@
 const redis = require('redis');
 client = redis.createClient();
 
-client.on('error',(err)=>{
-    console.log('Error creating client for redis');
-    console.log(err);
-});
 
 const {promisify} = require('util');
 const setAsync = promisify(client.set).bind(client);
@@ -12,7 +8,7 @@ const setAsync = promisify(client.set).bind(client);
 const axios = require('axios');
 require('dotenv').config();
 
-const baseUrl = process.env.JOBS ;
+const baseUrl = 'https://jobs.github.com/positions.json?page=' ;
 
 
 
