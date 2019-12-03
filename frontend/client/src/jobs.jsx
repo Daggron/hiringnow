@@ -1,16 +1,21 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Job from './job';
+import JobModal from './jobModal';
+
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 
+
 export default function Jobs ({jobs}){
+
+    //Pagination
     const numJobs = jobs.length;
     const numPages = Math.ceil(numJobs/50)
-    console.log(numJobs);
+    // console.log(numJobs);
     const [activeStep, setActiveStep] = React.useState(0);
 
     const handleNext = () => {
@@ -22,9 +27,28 @@ export default function Jobs ({jobs}){
     };
 
     const jobsOnPage = jobs.slice((activeStep *50) , (activeStep *50)+50);
+
+    //Modal
+    const [selectedJob , setSelectedJob] = React.useState({});
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
+    const selectJob = (e)=>{
+        // console.log(e)
+        setSelectedJob(e);
+    }
+  
   
     return(
        <div className="jobs">
+           <JobModal  open={open} job={selectedJob} handleClose={handleClose} />
            <Typography variant="h4" component="h1">
                Entry level software jobs
            </Typography>
@@ -34,7 +58,10 @@ export default function Jobs ({jobs}){
            
                {
                        jobsOnPage.map(
-                                (job,index) => <Job key={index} job={job} />
+                                (job,index) => <Job key={index} job={job} onClick={ ()=>{
+                                    handleClickOpen();
+                                    selectJob(job)
+                                } } />
                         )
                 }
 
@@ -47,7 +74,7 @@ export default function Jobs ({jobs}){
                     position="static"
                     activeStep={activeStep}
                     nextButton={
-                        <Button size="small" onClick={handleNext} disabled={activeStep === 4}>
+                        <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
                         Next
                             <KeyboardArrowRight />
                         </Button>

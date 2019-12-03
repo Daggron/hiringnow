@@ -9,3 +9,13 @@ body{
   padding: 20px 40px;
   align-items: center;
 }
+
+.job:hover{
+  color: #0366d6;
+  cursor: pointer;
+}
+
+.job-image{
+  width: 30px;
+  float: right;
+}
