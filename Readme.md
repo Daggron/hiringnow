@@ -36,7 +36,7 @@ npm run all
  This will start the frontend server along with the backend server
 
 
-#### The Live version of the project is deployed at https://jobinator.herokuapp.com/ here
+#### The Live version of the project is deployed at http://hiringnow.herokuapp.com/  here
 
 #### Tecnhologies used
 
@@ -45,6 +45,8 @@ npm run all
 2 React for the Front End
 
 3 Redis for blazing fast serving of data
+
+4 Material-Ui for Designing
 
 4 Cron jobs for fetching latest jobs from Github Jobs Api
 
