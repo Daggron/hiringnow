@@ -5,7 +5,8 @@
   "main": "api/index.js",
   "scripts": {
     "start": " concurrently \"node api/index.js\" \" node worker/index.js\" ",
-    "dev": "concurrently \"nodemon api/index.js\" \" nodemon worker/index.js\" "
+    "dev": "concurrently \"nodemon api/index.js\" \" nodemon worker/index.js\" ",
+    "all" :  "concurrently \"nodemon api/index.js\" \" nodemon worker/index.js\"  \" cd frontend/client && yarn start\" "
   },
   "keywords": [],
   "author": "",
