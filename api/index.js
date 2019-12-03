@@ -22,8 +22,9 @@ app.get('/jobs' ,async  (req,res)=>{
     const raw = await getAsync('github');
     const jobs = JSON.parse(raw);
     res.json({
-        data:jobs,
-        length:jobs.length
+        jobs:jobs,
+        length:jobs.length,
+        status:"OK"
     })
 });
 
