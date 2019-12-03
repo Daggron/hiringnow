@@ -1,0 +1,11 @@
+body{
+  margin: 20px 40px;
+}
+.job{
+  width: 80%;
+  margin:  20px auto!important;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+}
